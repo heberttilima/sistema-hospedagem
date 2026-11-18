@@ -192,7 +192,8 @@ async function loadRecords() {
 const {data,error} = await db
 .from('hospedagens')
 .select('*')
-.order('entrada');
+.order('local', {ascending: true})
+.order('entrada', {ascending: true});
 
 if(error) {
 msg('Erro ao carregar: '+error.message);
